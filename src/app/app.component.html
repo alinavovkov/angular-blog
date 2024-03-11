@@ -1,0 +1,98 @@
+<!-- <app-header></app-header> -->
+<div class="header">
+  <div class="header-content">
+    <span>Angular Blog</span>
+    <div class="buttons">
+      <button type="button" class="btn" (click)="openTemplate('signIn')" *ngIf="!clicker">Sign In</button>
+      <button type="button" class="btn" (click)="openTemplate('addPost')" *ngIf="clicker">Add Post</button>
+
+      <button class="userLog" *ngIf="clicker"> {{ nameLog }} </button>
+      <button type="button" class="btn" (click)="openTemplate('signUp')" *ngIf="!clicker">Sign Up</button>
+      <button type="button" class="btn" (click)="signOut()" *ngIf="clicker">Sign Out</button>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isTemplateVisible">
+  <ng-container [ngTemplateOutlet]="currentTemplate"></ng-container>
+</div>
+
+<ng-template #signInForm>
+  <div class="overlay">
+    <div class="signIn">
+
+      <div class="topSignIn">
+        <h2>Sign In</h2>
+        <button type="button" class="btn closeBtn" (click)="closeTemplate()"> ✕ </button>
+      </div>
+      <hr>
+      <input type="text" placeholder="email" class="input" name="email" [(ngModel)]="email" required>
+      <input type="password" placeholder="password" class="input" name="password" [(ngModel)]="password" required>
+      <span ngif> {{ errorTxt }} </span>
+      <hr>
+      <button type="button" class="btn saveBtn" (click)="submit()">submit</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #signUpForm>
+  <div class="overlay">
+    <div class="signUp">
+      <div class="topSignUp">
+        <h2>Sign Up</h2>
+        <button type="button" class="btn closeBtn" (click)="closeTemplate()"> ✕ </button>
+      </div>
+      <hr>
+      <input type="text" placeholder="username" class="input" name="inputUsername" [(ngModel)]="inputUsername" required>
+      <input type="text" placeholder="email" class="input" name="inputEmail" [(ngModel)]="inputEmail" required>
+      <input type="password" placeholder="password" class="input" name="inputPassword" [(ngModel)]="inputPassword" required>
+      <hr>
+      <button type="button" class="btn saveBtn" (click)="signup()">sign up</button>
+    </div>
+  </div>
+</ng-template>
+
+
+<div class="content-main">
+  <div class="posts">
+    <div class="post" *ngFor="let post of adminPosts">
+
+      <div class="main-details">
+        <span class="name-post">{{ post.topic }}</span>
+        <span class="creator-post">posted by: {{ post.postedBy }}</span>
+        <span class="description-post">{{ post.message }}</span>
+      </div>
+
+      <div class="details">
+        <span class="time-post">{{ post.date.toLocaleString() }}</span>
+
+        <div class="buttons-for-edit-post">
+          <button class=" button-edit" *ngIf="clicker && shouldShowButtons(post)" (click)="editPost(post)"> edit </button>
+          <button class="button-delete" *ngIf="clicker && shouldShowButtons(post)" (click)="deletePost(post)"> delete </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #postForm>
+  <div class="overlay">
+    <div class="signUp">
+      <div class="topSignUp">
+        <h2>Add post</h2>
+        <button type="button" class="btn closeBtn" (click)="closeTemplate()"> ✕ </button>
+      </div>
+      <hr>
+      <label for="title">Title:</label>
+      <input type="text" placeholder="title" class="input" name="title" [(ngModel)]="titlePost" required>
+      <label for="text">Text:</label>
+      <input type="text" placeholder="text" class="input" name="text" [(ngModel)]="textMessage" required>
+      <hr>
+      <button type="button" class="btn saveBtn" [disabled]="" (click)="savePost()" *ngIf="clikedStatus">Save changes</button>
+      <button type="button" class="btn postBtn" [disabled]="" (click)="addPost()" *ngIf="!clikedStatus">Post</button>
+
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,227 @@
+$font-primary: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$font-secondary: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+$primary-color: #99cde2;
+$secondary-color: #5d855d;
+$light: rgb(236, 236, 236);
+$dark: rgb(37, 37, 37);
+$grey: grey;
+
+$transparent: transparent;
+$color_snow_white: rgb(255, 255, 255);
+$color_light_grey: rgb(206, 206, 206);
+
+.invalid-email {
+    border: 1px solid red; /* Add your desired styles for an invalid email */
+  }
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: $dark;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    width: 90%;
+    height: 80px;
+    margin: 0 auto;
+    font-family: $font-primary;
+    color: $light;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    width: 210px;
+    height: 30px;
+    display: flex;
+    justify-content: row;
+    align-items: center;
+
+}
+
+.btn {
+    width: 70px;
+    height: 30px;
+    background-color: $transparent;
+    border: 1px solid $primary-color;
+    border-radius: 2px;
+    color: $primary-color;
+}
+
+.btn:hover {
+    background-color: $secondary-color;
+    border: none;
+    border-radius: 2px;
+    color: $light;
+}
+
+.userLog {
+    width: 70px;
+    height: 30px;
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+    border-radius: 2px;
+    color: $dark;
+    font-size: 18px;
+}
+
+
+// add phone
+
+.signIn, .signUp {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    width: 400px;
+    height: 300px;
+    color: $dark;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: $color_snow_white;
+    border-radius: 10px;
+    padding: 0 20px 20px 20px;
+}
+
+.signIn,
+.signUp {
+    input {
+        height: 40px;
+        width: 78%;
+        padding: 2px;
+        padding-left: 5px;
+        border: none;
+        outline: 1px solid $color_light_grey;
+        border-radius: 5px;
+    }
+}
+
+.topSignIn,
+.topSignUp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signIn,
+.signUp {
+    input {
+
+        width: 90%;
+        margin: 0 auto;
+        outline: 1px $color_light_grey solid;
+    }
+}
+
+.saveBtn {
+    background: $secondary-color;
+    color: $light;
+    width: 60px;
+    margin-left: auto;
+    border-radius: 5px;
+
+}
+
+.saveBtn:hover {
+    background: $light;
+    color: $dark;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+
+}
+
+.closeBtn {
+    color: $dark;
+    font-size: 25px;
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+
+.closeBtn:hover {
+    border-radius: 5px;
+}
+
+// content main
+.content-main {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.posts {}
+
+.post {
+    width: 80%;
+    height: 120px;
+    margin: 0 auto;
+    border: 1px solid $grey;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.main-details {
+    width: 70%;
+    height: 100%;
+    padding-left: 20px;
+    gap: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name-post {
+    font-family: $font-primary;
+    font-size: 18px;
+    color: $dark;
+}
+
+.creator-post {
+    font-family: $font-secondary;
+    font-size: 14px;
+    color: $grey;
+}
+
+.description-post {
+    font-family: $font-secondary;
+    font-size: 14px;
+    color: $dark;
+}
+
+.details {
+    width: 26%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-post {
+    font-family: $font-secondary;
+    font-size: 10px;
+    color: $grey;
+}
