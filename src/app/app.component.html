@@ -89,6 +89,7 @@
       <input type="text" placeholder="title" class="input" name="title" [(ngModel)]="titlePost" required>
       <label for="text">Text:</label>
       <input type="text" placeholder="text" class="input" name="text" [(ngModel)]="textMessage" required>
+      <span>{{ errorTxt }}</span>
       <hr>
       <button type="button" class="btn saveBtn" [disabled]="" (click)="savePost()" *ngIf="clikedStatus">Save changes</button>
       <button type="button" class="btn postBtn" [disabled]="" (click)="addPost()" *ngIf="!clikedStatus">Post</button>

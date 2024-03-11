@@ -116,6 +116,13 @@ export class AppComponent {
   }
 
   addPost() {
+    if (!this.titlePost || !this.textMessage) {
+      // Show an error message or handle the case where fields are empty
+      // this.clicker = false;
+      this.errorTxt = 'Please fill in all required fields';
+      return;
+    }
+
     const now = new Date();
     const index = this.adminPosts.length;
     const newPost: IPost = {
